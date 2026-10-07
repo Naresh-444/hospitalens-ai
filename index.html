@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f7f8" />
+  <title>Northstar · Hospital Operations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Northstar home"><span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5 19.2 12l8.8 4-8.8 3.2L16 28.5l-3.2-9.3L4 16l8.8-4L16 3.5Z"/><circle cx="16" cy="16" r="2.4"/></svg></span><span>northstar<span class="brand-sub">CARE OPERATIONS</span></span></a>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#overview" data-page="overview"><span class="nav-icon">◫</span>Overview</a>
+        <a class="nav-item" href="#capacity" data-page="capacity"><span class="nav-icon">▤</span>Capacity planning</a>
+        <a class="nav-item" href="#forecast" data-page="forecast"><span class="nav-icon">⌁</span>Demand forecast</a>
+        <a class="nav-item" href="#alerts" data-page="alerts"><span class="nav-icon">♧</span>Alerts <span class="nav-count">4</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">✳</div><strong>Planning ahead?</strong><p>Use the scenario planner to test changes in demand and capacity.</p><button class="text-button" id="scenario-open">Open scenario planner <span>↗</span></button></div>
+        <div class="profile"><div class="avatar">AM</div><div class="profile-copy"><strong>Alex Morgan</strong><span>Operations lead</span></div><button class="more-button" aria-label="Profile menu">···</button></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar"><div class="breadcrumbs"><span>Northstar General</span><span class="crumb-sep">/</span><strong>Operations overview</strong></div><div class="top-actions"><span class="live-status"><i></i> Live operations</span><button class="icon-button notification-button" aria-label="Notifications" id="notification-button">♧<b></b></button><button class="user-chip"><span class="avatar small">AM</span><span>Alex Morgan</span><span class="chevron">⌄</span></button></div></header>
+
+      <section class="page-heading"><div><div class="eyebrow"><span class="eyebrow-dot"></span> WEDNESDAY, OCTOBER 7, 2026 <span class="eyebrow-divider">·</span> DAY SHIFT</div><h1>Operations overview</h1><p class="subtitle">A clear view of today’s demand, capacity, and what needs attention.</p></div><div class="heading-actions"><label class="select-wrap"><span class="sr-only">Select hospital</span><select id="facility-select"><option>Northstar General</option><option>Riverside Medical Center</option><option>Eastside Community Hospital</option></select></label><button class="button button-secondary" id="export-button"><span>↓</span> Export report</button></div></section>
+
+      <section class="kpi-grid" aria-label="Key operations metrics">
+        <article class="kpi-card"><div class="kpi-top"><span>Projected arrivals</span><span class="kpi-icon blue">↗</span></div><div class="kpi-value">128 <span class="unit">patients</span></div><div class="kpi-foot"><span class="trend up">↑ 12%</span><span>vs. last Wednesday</span></div><div class="sparkline" data-values="8,10,7,13,11,17,15,21,18,24"></div></article>
+        <article class="kpi-card"><div class="kpi-top"><span>Inpatient beds</span><span class="kpi-icon green">▤</span></div><div class="kpi-value">86<span class="fraction"> / 102</span></div><div class="kpi-foot"><span class="trend neutral">84% occupied</span><span>16 available</span></div><div class="mini-progress"><span style="width:84%"></span></div></article>
+        <article class="kpi-card"><div class="kpi-top"><span>ICU capacity</span><span class="kpi-icon amber">✚</span></div><div class="kpi-value">18<span class="fraction"> / 20</span></div><div class="kpi-foot"><span class="trend warning">90% occupied</span><span>2 available</span></div><div class="mini-progress warning-bar"><span style="width:90%"></span></div></article>
+        <article class="kpi-card"><div class="kpi-top"><span>Staff coverage</span><span class="kpi-icon purple">♙</span></div><div class="kpi-value">92<span class="unit">%</span></div><div class="kpi-foot"><span class="trend up">↑ 4%</span><span>vs. planned staffing</span></div><div class="mini-progress purple-bar"><span style="width:92%"></span></div></article>
+      </section>
+
+      <section class="primary-grid">
+        <article class="panel forecast-panel" id="forecast">
+          <div class="panel-header"><div><div class="panel-title-row"><h2>Demand forecast</h2><span class="confidence"><i></i> 87% confidence</span></div><p class="panel-subtitle">Expected arrivals compared with available capacity</p></div><div class="segmented" role="group" aria-label="Forecast range"><button class="range-button" data-range="24h">24 hours</button><button class="range-button selected" data-range="7d">7 days</button><button class="range-button" data-range="30d">30 days</button></div></div>
+          <div class="chart-legend"><span><i class="legend-demand"></i> Expected demand</span><span><i class="legend-capacity"></i> Available capacity</span><span><i class="legend-range"></i> Forecast range</span></div>
+          <div class="chart-wrap"><div class="y-labels"><span>160</span><span>120</span><span>80</span><span>40</span><span>0</span></div><div class="chart-area"><div class="grid-lines"><i></i><i></i><i></i><i></i><i></i></div><svg class="forecast-chart" viewBox="0 0 700 220" preserveAspectRatio="none" role="img" aria-label="Line chart of expected demand and available capacity over the next seven days"><defs><linearGradient id="rangeFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#60b9a2" stop-opacity=".22"/><stop offset="100%" stop-color="#60b9a2" stop-opacity=".015"/></linearGradient><linearGradient id="demandFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#6c9be9" stop-opacity=".15"/><stop offset="100%" stop-color="#6c9be9" stop-opacity="0"/></linearGradient></defs><path class="range-area" d="M0 100 L116 95 L232 88 L348 77 L464 68 L580 48 L700 36 L700 116 L580 127 L464 139 L348 147 L232 154 L116 159 L0 163Z"/><path class="demand-area" d="M0 136 L116 131 L232 124 L348 112 L464 105 L580 88 L700 75 L700 220 L0 220Z"/><path class="capacity-line" d="M0 65 L116 65 L232 65 L348 65 L464 65 L580 65 L700 65"/><path class="demand-line" d="M0 136 L116 131 L232 124 L348 112 L464 105 L580 88 L700 75"/><circle class="chart-point" cx="580" cy="88" r="4"/><line class="today-line" x1="348" y1="15" x2="348" y2="208"/><rect class="today-pill" x="322" y="8" width="52" height="20" rx="10"/><text class="today-text" x="348" y="22" text-anchor="middle">TODAY</text></svg><div class="x-labels"><span>Mon, Oct 5</span><span>Tue, Oct 6</span><span>Wed, Oct 7</span><span>Thu, Oct 8</span><span>Fri, Oct 9</span><span>Sat, Oct 10</span><span>Sun, Oct 11</span></div><div class="chart-tooltip" id="chart-tooltip"><strong>Saturday, Oct 10</strong><span>Expected demand <b>142</b></span><span>Available capacity <b>126</b></span></div></div></div>
+          <div class="forecast-insight"><span class="insight-icon">✦</span><span><strong>Weekend pressure expected.</strong> Arrivals may exceed staffed capacity by up to 16 patients on Saturday.</span><button class="inline-link" id="forecast-action">View recommendation <span>→</span></button></div>
+        </article>
+
+        <article class="panel capacity-panel" id="capacity">
+          <div class="panel-header"><div><h2>Capacity snapshot</h2><p class="panel-subtitle">Current utilization across departments</p></div><button class="more-button panel-more" aria-label="More capacity options">···</button></div>
+          <div class="capacity-total"><div><strong>84%</strong><span>overall utilization</span></div><div class="capacity-delta"><span>↑ 6%</span><small>since 8:00 AM</small></div></div>
+          <div class="capacity-list">
+            <div class="capacity-row"><div class="capacity-name"><span class="dept-icon inpatient">▤</span><span>Inpatient beds</span><strong>86 <small>/ 102</small></strong></div><div class="capacity-track"><i class="fill-blue" style="width:84%"></i></div><div class="capacity-meta"><span>84% occupied</span><span>16 available</span></div></div>
+            <div class="capacity-row"><div class="capacity-name"><span class="dept-icon icu">✚</span><span>ICU beds</span><strong>18 <small>/ 20</small></strong></div><div class="capacity-track"><i class="fill-orange" style="width:90%"></i></div><div class="capacity-meta"><span class="orange-text">90% occupied</span><span>2 available</span></div></div>
+            <div class="capacity-row"><div class="capacity-name"><span class="dept-icon ed">＋</span><span>Emergency dept.</span><strong>32 <small>/ 40</small></strong></div><div class="capacity-track"><i class="fill-green" style="width:80%"></i></div><div class="capacity-meta"><span>80% occupied</span><span>8 available</span></div></div>
+            <div class="capacity-row"><div class="capacity-name"><span class="dept-icon staff">♙</span><span>Staff on shift</span><strong>74 <small>/ 80</small></strong></div><div class="capacity-track"><i class="fill-purple" style="width:92%"></i></div><div class="capacity-meta"><span>92% coverage</span><span>6 below plan</span></div></div>
+          </div>
+          <button class="full-link" id="capacity-details">View capacity details <span>→</span></button>
+        </article>
+      </section>
+
+      <section class="lower-grid">
+        <article class="panel recommendations-panel" id="recommendations">
+          <div class="panel-header"><div><div class="panel-title-row"><h2>Recommended actions</h2><span class="recommendation-count">3</span></div><p class="panel-subtitle">Suggestions based on forecast and current capacity</p></div><button class="inline-link" id="all-recommendations">See all <span>→</span></button></div>
+          <div class="recommendation-list">
+            <div class="recommendation-item"><span class="rec-icon high">↗</span><div class="rec-content"><div class="rec-heading"><strong>Prepare 4 flex beds</strong><span class="priority high-priority">HIGH PRIORITY</span></div><p>Projected arrivals exceed staffed bed capacity this Saturday.</p><div class="rec-meta"><span>◷ By Friday, 4:00 PM</span><span>▤ Inpatient</span></div></div><button class="rec-button" data-action="beds">Review</button></div>
+            <div class="recommendation-item"><span class="rec-icon medium">♙</span><div class="rec-content"><div class="rec-heading"><strong>Request 2 additional nurses</strong><span class="priority medium-priority">MEDIUM</span></div><p>Staff coverage may fall below safe planning threshold during weekend peak.</p><div class="rec-meta"><span>◷ By Friday, 12:00 PM</span><span>♙ Staffing</span></div></div><button class="rec-button" data-action="staff">Review</button></div>
+            <div class="recommendation-item"><span class="rec-icon info">↔</span><div class="rec-content"><div class="rec-heading"><strong>Review elective admissions</strong><span class="priority info-priority">SUGGESTED</span></div><p>Consider shifting 3 non-urgent admissions away from Saturday.</p><div class="rec-meta"><span>◷ For Saturday, Oct 10</span><span>⌂ Admissions</span></div></div><button class="rec-button" data-action="admissions">Review</button></div>
+          </div>
+        </article>
+
+        <article class="panel alerts-panel" id="alerts">
+          <div class="panel-header"><div><div class="panel-title-row"><h2>Needs attention</h2><span class="alert-count">4</span></div><p class="panel-subtitle">Live alerts from across the hospital</p></div><button class="more-button panel-more" aria-label="More alert options">···</button></div>
+          <div class="alert-list">
+            <div class="alert-item"><span class="alert-indicator critical"></span><div><strong>ICU nearing capacity</strong><p>Only 2 beds available · ICU</p><time>8 min ago</time></div><button class="alert-arrow" aria-label="Open ICU alert">↗</button></div>
+            <div class="alert-item"><span class="alert-indicator warning-indicator"></span><div><strong>Staffing gap detected</strong><p>3 nursing shifts unfilled · Emergency</p><time>24 min ago</time></div><button class="alert-arrow" aria-label="Open staffing alert">↗</button></div>
+            <div class="alert-item"><span class="alert-indicator info-indicator"></span><div><strong>Supply threshold reached</strong><p>Oxygen kits below 48-hour buffer · Supply</p><time>51 min ago</time></div><button class="alert-arrow" aria-label="Open supply alert">↗</button></div>
+          </div>
+          <button class="full-link" id="all-alerts">View all alerts <span>→</span></button>
+        </article>
+      </section>
+      <footer class="page-footer"><span><i class="footer-dot"></i> Data refreshed 2 minutes ago</span><span>Forecasts are estimates to support operational planning.</span><button id="refresh-button">↻ Refresh data</button></footer>
+    </main>
+  </div>
+
+  <dialog class="modal" id="detail-modal"><div class="modal-top"><span class="modal-kicker">OPERATIONS PLANNER</span><button class="modal-close" aria-label="Close dialog">×</button></div><div id="modal-content"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
